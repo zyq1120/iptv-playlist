@@ -2,16 +2,16 @@
 
 Verified IPTV playlist, built 2026-10-31 from public sources and re-checked
 with ffprobe (actually reading the video stream, not just the playlist).
-Daily maintenance 2026-11-01: all IPv4 lines re-probed (15-way concurrency,
+Daily maintenance 2026-11-02: all IPv4 lines re-probed (15-way concurrency,
 20s timeout, codec_name = playable; dead lines individually rechecked).
 
-- `iptv.m3u` — full list, 1648 entries, 938 channels. Per channel, lines are
+- `iptv.m3u` — full list, 1643 entries, 933 channels. Per channel, lines are
   ordered: ffprobe-verified streams first (highest resolution first), then
   playlist-only streams, then IPv6, then first-failure lines kept at the end
   (channels whose IPv4 all failed are kept, not removed, until a second
   consecutive all-fail maintenance). Same channel name is used for all its
   lines, so a player that groups by name shows them as one channel.
-- `iptv-ffprobe-only.m3u` — 1076 entries: only ffprobe-verified IPv4 + IPv6.
+- `iptv-ffprobe-only.m3u` — 1036 entries: only ffprobe-verified IPv4 + IPv6.
   Use this if you only want lines that were proven playable here.
 - `aptv/line1.m3u` … `aptv/line5.m3u` — Aptv aggregated-config splits.
   Aptv does NOT merge duplicate names inside a single config (it shows 1/1),
